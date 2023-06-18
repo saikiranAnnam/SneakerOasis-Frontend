@@ -4,7 +4,6 @@ import ProductCard from "@/components/ProductCard";
 import { fetchDataFromApi } from "@/utils/api";
 import useSWR from "swr";
 import { useRouter } from "next/router";
-import { data } from "autoprefixer";
 const maxResult = 3;
 
 const Category = ({ category, products, slug }) => {
@@ -94,7 +93,11 @@ export default Category;
 export async function getStaticPaths() {
     try{
     const category = await fetchDataFromApi("/api/categories?populate=*");
-    const paths = category.data.map((c) => ({params: {slug: c.attributes.slug,}}));
+    const paths = category.data.map((c) => ({
+      params: {
+        slug: c.attributes.slug,
+      },
+    }));  
     return {
       paths,
       fallback: false,
@@ -103,7 +106,7 @@ export async function getStaticPaths() {
     }catch(error){
     console.error("Error fetching category data:", error);
     return {
-      paths,
+      paths: [],
       fallback: false,
     };
     }
