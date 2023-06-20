@@ -6,7 +6,7 @@ import useSWR from "swr";
 import { useRouter } from "next/router";
 const maxResult = 3;
 
-const Category = ({ category, products, slug }) => {
+const Categories = ({ category, products, slug }) => {
     const [pageIndex, setPageIndex] = useState(1);
     const { query } = useRouter();
 
@@ -87,15 +87,18 @@ const Category = ({ category, products, slug }) => {
     );
 };
 
-export default Category;
+export default Categories;
 
 export async function getStaticPaths() {
     const category = await fetchDataFromApi("/api/categories?populate=*");
+    
+    console.log(category.data);
+
     const paths = category?.data?.map((c) => ({
-        params: {
-            slug: c.attributes.slug,
-        },
+        params: {slug: c.attributes.slug},
     }));
+    console.log(paths)
+    
     
 
     return {
