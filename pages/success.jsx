@@ -30,7 +30,7 @@ const Success = () => {
                         </div>
                         <div className="underline">shoeshopcontact@shop.com</div>
 
-                        <Link href="/" className="font-bold mt-5 text-blue-600 underline">
+                        <Link href="https://sneakeroasis.vercel.app/" className="font-bold mt-5 text-blue-600 underline">
                             Continue Shopping
                         </Link>
                     </div> 
