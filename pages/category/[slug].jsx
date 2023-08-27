@@ -82,6 +82,7 @@ const Categories = ({ category, products, slug }) => {
                         <span className="text-2xl font-medium">Loading...</span>
                     </div>
                 )}
+                
             </Wrapper>
         </div>
     );

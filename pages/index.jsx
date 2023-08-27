@@ -7,8 +7,6 @@ import { useEffect, useState } from "react";
 
 
 
-
-
 export default  function Home({products}) {
 
 
@@ -41,9 +39,6 @@ export default  function Home({products}) {
                 <ProductCard key={product?.id} data={product}/>
             ))}
         </div>
-
-
-
     </main>
     );
 }

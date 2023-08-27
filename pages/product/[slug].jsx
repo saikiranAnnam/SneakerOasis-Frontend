@@ -1,7 +1,7 @@
- import React, { useState } from "react";
+import React, { useState } from "react";
 import { IoMdHeartEmpty } from "react-icons/io";
 import Wrapper from "@/components/Wrapper";
-import ProductDetailsCarousel from "@/components/ProductDetailsCarousel";
+
 import RelatedProducts from "@/components/RelatedProducts";
 import { fetchDataFromApi } from "@/utils/api";
 import { getDiscountedPricePercentage } from "@/utils/helper";
@@ -11,6 +11,7 @@ import { addToCart } from "@/store/cartSlice";
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import ProductDetailsCarousel from "@/components/ProductDetailsCarousel";
 
 const ProductDetails = ({ product, products }) => {
     const [selectedSize, setSelectedSize] = useState();
@@ -20,7 +21,7 @@ const ProductDetails = ({ product, products }) => {
 
     const notify = () => {
         toast.success("Success. Check your cart!", {
-            position: "bottom-right",
+            position: "top-right",
             autoClose: 5000,
             hideProgressBar: false,
             closeOnClick: true,
